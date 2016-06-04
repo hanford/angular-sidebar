@@ -14,10 +14,16 @@ function ngSidebar () {
 function link (scope, element, attrs) {
   var sidebar = element[0]
   var sidebarContainer = document.querySelector('.js-side-nav-container')
+  var header = angular.element('.side-nav__hide')
 
   var startX = 0
   var currentX = 0
   var touchingSideNav = false
+
+  header.on('click', hideSideNav)
+
+  scope.$on('openSidebar', showSideNav)
+  scope.$on('hideSidebar', hideSideNav)
 
   element.on('touchstart', function () {
     if (!sidebar.classList.contains('side-nav--visible'))
@@ -78,8 +84,6 @@ function link (scope, element, attrs) {
     sidebar.removeEventListener('transitionend', onTransitionEnd)
   }
 
-  element.on('click', hideSideNav)
-
   function onTransitionEnd () {
     sidebar.classList.remove('side-nav--animatable')
     sidebar.removeEventListener('transitionend', onTransitionEnd)
@@ -94,6 +98,4 @@ function link (scope, element, attrs) {
     var translateX = Math.min(0, currentX - startX)
     sidebarContainer.style.transform = 'translateX(' + translateX + 'px)'
   }
-
-  scope.$on('openSidebar', showSideNav)
 }
