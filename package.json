@@ -1,0 +1,21 @@
+{
+  "name": "angular-sidebar",
+  "version": "0.0.1",
+  "description": "an angular sidebar component",
+  "main": "index.js",
+  "scripts": {
+    "watch": "watchify ./website/app.js -d -o ./website/built.js -v"
+  },
+  "keywords": [
+    "angular",
+    "sidebar"
+  ],
+  "author": "Jack Hanford <jackhanford@gmail.com> (http://jackhanford.com)",
+  "license": "MIT",
+  "dependencies": {},
+  "devDependencies": {
+    "angular": "~1.5.5",
+    "browserify": "~13.0.1",
+    "watchify": "~3.7.0"
+  }
+}
