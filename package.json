@@ -1,6 +1,6 @@
 {
   "name": "angular-sidebar",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "an angular sidebar component",
   "main": "./src",
   "style": "./src/angular-sidebar.css",
