@@ -1,0 +1,41 @@
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,minimum-scale=1">
+  <title>Side Nav</title>
+  <link rel="stylesheet" href="./src/angular-sidebar.css">
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    html, body {
+      padding: 0;
+      margin: 0;
+      background: #FAFAFA;
+      font-family: Arial, sans-serif;
+    }
+  </style>
+</head>
+<body ng-app="exampleApp" ng-controller="controller">
+  <div class="header">
+    <button ng-click="openNav()" class="js-menu-show header__menu-toggle">Menu</button>
+  </div>
+
+  <ng-sidebar class="js-side-nav side-nav">
+    <nav class="js-side-nav-container side-nav__container">
+      <button class="js-menu-hide side-nav__hide">close</button>
+      <header class="side-nav__header">
+        Side Nav
+      </header>
+      <ul class="side-nav__content">
+        <li>Two</li>
+        <li>Three</li>
+        <li>Four</li>
+      </ul>
+    </nav>
+  </ng-sidebar>
+
+  <script src="./website/built.js"></script>
+</body>
+</html>
