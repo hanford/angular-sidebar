@@ -2,7 +2,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,minimum-scale=1">
-  <title>Side Nav</title>
+  <title>angular-sidebar</title>
+  <link rel="stylesheet" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
   <link rel="stylesheet" href="./src/angular-sidebar.css">
   <style>
     * {
@@ -12,29 +13,52 @@
     html, body {
       padding: 0;
       margin: 0;
+      height: 100%;
+      width: 100%;
       background: #FAFAFA;
       font-family: Arial, sans-serif;
+    }
+
+    .container {
+      display: flex;
+      justify-content: center;
+      height: 90%;
+      align-items: center;
+      flex-direction: column;
     }
   </style>
 </head>
 <body ng-app="exampleApp" ng-controller="controller">
+  <a href="https://github.com/hanford/angular-sidebar"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/38ef81f8aca64bb9a64448d0d70f1308ef5341ab/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png"></a>
+
   <div class="header">
-    <button ng-click="openNav()" class="js-menu-show header__menu-toggle">Menu</button>
+    <button ng-click="openNav()" class="js-menu-show header__menu-toggle">
+      <i class="ion-navicon-round" style="font-size:26px"></i>
+    </button>
   </div>
 
   <ng-sidebar class="js-side-nav side-nav">
     <nav class="js-side-nav-container side-nav__container">
-      <button class="js-menu-hide side-nav__hide">close</button>
+      <button class="js-menu-hide side-nav__hide">
+        <i class="ion-close-round" style="font-size:26px;"></i>
+      </button>
       <header class="side-nav__header">
-        Side Nav
+        angular-sidebar
       </header>
       <ul class="side-nav__content">
+        <li>One</li>
         <li>Two</li>
         <li>Three</li>
         <li>Four</li>
       </ul>
     </nav>
   </ng-sidebar>
+
+  <div class="container">
+    <h1>angular-sidebar</h1>
+    <p style="max-width:80%;margin: 0 auto;text-align:center;margin-bottom:24px">Super lightweight <code style="padding:2px;background-color:#EEE">3kb</code>, pure angular, mobile ready, sidebar component</p>
+    <iframe src="https://ghbtns.com/github-btn.html?user=hanford&repo=angular-sidebar&type=star&count=true&size=large" frameborder="0" scrolling="0" height="30px" style="display:inline-block;margin:0 auto;width:111px"></iframe>
+  </div>
 
   <script src="./website/built.js"></script>
 </body>
