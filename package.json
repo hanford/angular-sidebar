@@ -5,7 +5,8 @@
   "main": "./src",
   "style": "./src/angular-sidebar.css",
   "scripts": {
-    "watch": "watchify ./website/app.js -d -o ./website/built.js -v"
+    "watch": "watchify ./website/app.js -d -o ./website/built.js -v",
+    "build-web": "browserify ./website/built.js | uglifyjs > ./website/built.min.js"
   },
   "keywords": [
     "angular",
@@ -30,6 +31,7 @@
   "devDependencies": {
     "angular": "~1.5.5",
     "browserify": "~13.0.1",
+    "uglify": "~0.1.5",
     "watchify": "~3.7.0"
   }
 }

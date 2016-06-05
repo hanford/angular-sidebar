@@ -14,7 +14,7 @@ function ngSidebar () {
 function link (scope, element, attrs) {
   var sidebar = element[0]
   var sidebarContainer = document.querySelector('.js-side-nav-container')
-  var header = angular.element('.side-nav__hide')
+  var header = angular.element(document.querySelector('.side-nav__hide'))
 
   var startX = 0
   var currentX = 0
