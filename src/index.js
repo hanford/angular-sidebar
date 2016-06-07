@@ -25,48 +25,6 @@ function link (scope, element, attrs) {
   scope.$on('openSidebar', showSideNav)
   scope.$on('hideSidebar', hideSideNav)
 
-  element.on('touchstart', function () {
-    if (!sidebar.classList.contains('side-nav--visible'))
-      return
-
-    startX = event.touches[0].pageX
-    currentX = startX
-
-    touchingSideNav = true
-    requestAnimationFrame(update)
-  })
-
-  element.on('touchend', function () {
-    if (!touchingSideNav)
-      return
-
-    touchingSideNav = false
-
-    var translateX = Math.min(0, currentX - startX)
-    sidebarContainer.style.transform = ''
-
-    if (translateX < 0) {
-      hideSideNav()
-    }
-  })
-
-  element.on('touchmove', function (event) {
-    if (!touchingSideNav)
-      return
-
-    if (event.originalEvent && event.originalEvent.touches) {
-      currentX = event.originalEvent.touches[0].pageX
-    } else {
-      currentX = event.touches[0].pageX
-    }
-
-    var translateX = Math.min(0, currentX - startX)
-
-    if (translateX < 0) {
-      event.preventDefault()
-    }
-  })
-
   element.on('transitionend', function () {
     sidebarContainer.classList.remove('side-nav--animatable')
     sidebar.removeEventListener('transitionend', onTransitionEnd)
@@ -87,6 +45,50 @@ function link (scope, element, attrs) {
   function onTransitionEnd () {
     sidebar.classList.remove('side-nav--animatable')
     sidebar.removeEventListener('transitionend', onTransitionEnd)
+  }
+
+  if (attrs.noDrag) {
+    element.on('touchstart', function () {
+      if (!sidebar.classList.contains('side-nav--visible'))
+        return
+
+      startX = event.touches[0].pageX
+      currentX = startX
+
+      touchingSideNav = true
+      requestAnimationFrame(update)
+    })
+
+    element.on('touchend', function () {
+      if (!touchingSideNav)
+        return
+
+      touchingSideNav = false
+
+      var translateX = Math.min(0, currentX - startX)
+      sidebarContainer.style.transform = ''
+
+      if (translateX < 0) {
+        hideSideNav()
+      }
+    })
+
+    element.on('touchmove', function (event) {
+      if (!touchingSideNav)
+        return
+
+      if (event.originalEvent && event.originalEvent.touches) {
+        currentX = event.originalEvent.touches[0].pageX
+      } else {
+        currentX = event.touches[0].pageX
+      }
+
+      var translateX = Math.min(0, currentX - startX)
+
+      if (translateX < 0) {
+        event.preventDefault()
+      }
+    })
   }
 
   function update () {
