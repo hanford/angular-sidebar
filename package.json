@@ -5,6 +5,7 @@
   "main": "./src",
   "style": "./src/angular-sidebar.css",
   "scripts": {
+    "start": "npm run build-web",
     "watch": "watchify ./website/app.js -d -o ./website/built.js -v",
     "build-web": "browserify ./website/built.js | uglifyjs > ./website/built.min.js"
   },

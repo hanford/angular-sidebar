@@ -2,7 +2,7 @@
 
 [![NPM][angular-sidebar-icon]][angular-sidebar-url]
 
-[Live Demo!](http://jackhanford.com/angular-sidebar)
+[Live Demo!](https://angular-sidebar.jackhanford.com/)
 
 #### Usage
 ```js
@@ -11,7 +11,7 @@ angular
   .module('app', [
     require('angular-sidebar')
   ])
-```  
+```
 
 ```html
 // index.html
@@ -28,9 +28,9 @@ angular
     </ul>
   </nav>
 </ng-sidebar>
-```  
+```
 
-#### API  
+#### API
 angular-sidebar takes in two events, one to open and the other to close
 
 By adding the `no-drag` attribute, you can disable the touch handling
